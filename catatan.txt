@@ -1,0 +1,10 @@
+akun login:
+admin@gmail.com
+admin
+
+api.php belum ada, jalankan dulu ini:
+php artisan install:api
+
+php artisan make:controller Api/AuthController --api
+
+php artisan make:migration add_discount_amount_to_orders_table --table=orders
