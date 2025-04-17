@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrderItem extends Model
 {
-    //
+    //fillable = field yang boleh diisi
 
     use HasFactory;
 

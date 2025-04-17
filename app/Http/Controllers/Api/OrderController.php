@@ -54,8 +54,9 @@ class OrderController extends Controller
             'transaction_time' => 'required'
         ]);
 
-        // create order (tambah data)
+        // create order (tambah data), ternyata disini belim ditambahin request payment amount
         $order = Order::create([
+            'payment_amount' => $request->payment_amount,
             'payment_method' => $request->payment_method,
             'sub_total' => $request->sub_total,
             'tax' => $request->tax,
@@ -70,7 +71,9 @@ class OrderController extends Controller
         ]);
 
         // tambah data ke tbl order item
-        foreach ($order->order_items as $item) {
+        // foreach ($order->order_items as $item) { ini salah
+        // ambilnya dari request
+        foreach ($request->order_items as $item) {
             # code...
             OrderItem::create([
                 'order_id' => $order->id,
